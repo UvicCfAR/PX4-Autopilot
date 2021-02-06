@@ -55,6 +55,8 @@ px4_add_romfs_files(
 	hexa_+.main.mix
 	hexa_x.main.mix
 	IO_pass.main.mix
+	mini_e.aux.mix
+	mini_e.main.mix
 	mount.aux.mix
 	mount_legs.aux.mix
 	ocpoc_quad_x.main.mix
@@ -74,6 +76,8 @@ px4_add_romfs_files(
 	quad_x_cw.main.mix
 	quad_x_vtol.main.mix
 	stampede.main.mix
+	quad_tarot_650.main.mix
+	quad_balsyPOC.main.mix
 	tri_y_yaw-.main.mix
 	tri_y_yaw+.main.mix
 	rover_generic.main.mix

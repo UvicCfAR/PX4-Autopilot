@@ -1,0 +1,29 @@
+# Mini-e multicopter 50-50 configuration
+
+[info]
+key = "4me"
+description = "Mini-e multicopter 50-50 configuration"
+
+[rotor_default]
+direction = "CW"
+axis      = [0.0, 0.0, -1.0]
+Ct        = 1
+Cm        = 0.01715
+
+[[rotors]]
+name      = "front_right"
+position  = [0.5238, 0.516, 0.0]
+direction = "CCW"
+
+[[rotors]]
+name      = "rear_left"
+position  = [-0.5238, -0.516, 0.0]
+direction = "CCW"
+
+[[rotors]]
+name     = "front_left"
+position = [0.5238, -0.516, 0.0]
+
+[[rotors]]
+name     = "rear_right"
+position = [-0.5238, 0.516, 0.0]

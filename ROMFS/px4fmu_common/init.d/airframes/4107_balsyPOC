@@ -1,0 +1,61 @@
+#!/bin/sh
+#
+# @name Balsy Proof Of Concept
+#
+# @type Quadrotor x
+# @class Copter
+#
+# @maintainer Sean Bazzocchi <sean.bazzocchi@gmail.com>
+#
+# @board px4_fmu-v2 exclude
+# @board intel_aerofc-v1 exclude
+# @board bitcraze_crazyflie exclude
+#
+
+sh /etc/init.d/rc.mc_defaults
+
+set MIXER quad_balsyPOC
+set PWM_OUT 1234
+
+if [ $AUTOCNF = yes ]
+then
+
+	#Temp for tuning
+	param set MC_AIRMODE 0
+	param set MC_ACRO_EXPO 0
+	param set MC_ACRO_EXPO_Y 0
+	param set MC_ACRO_SUPEXPO 0
+	param set MC_ACRO_SUPEXPOY 0
+	param set MC_ACRO_P_MAX 100
+	param set MC_ACRO_R_MAX 100
+	param set MC_ACRO_Y_MAX 50
+
+
+	#Power
+	param set BAT_N_CELLS 4
+	param set BAT1_N_CELLS 4
+	param set BAT_CAPACITY 1400
+	param set BAT1_CAPACITY 1400
+	param set BAT_R_INTERNAL -1
+	param set BAT1_R_INTERNAL -1
+
+	#General sensor settings
+
+	#Telemetry settings
+
+	#LIDAR settings
+
+	#Rate controller
+
+	#Attitude controller
+
+	#Motor settings
+	param set PWM_MIN 1100
+	param set THR_MDL_FAC 0.031
+	param set MPC_THR_HOVER 0.25
+
+	#Logging settings
+	param set SDLOG_PROFILE 27
+	param set SDLOG_UTC_OFFSET -480
+
+fi

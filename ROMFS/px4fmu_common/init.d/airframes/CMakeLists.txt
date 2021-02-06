@@ -84,6 +84,8 @@ px4_add_romfs_files(
 	4080_zmr250
 	4090_nanomind
 	4100_tiltquadrotor
+	4106_tarot_650
+	4107_balsyPOC
 	4250_teal
 	4500_clover4
 	4900_crazyflie
@@ -131,6 +133,7 @@ px4_add_romfs_files(
 	13010_claire
 	13012_convergence
 	13013_deltaquad
+	13094_mini_e
 	13200_generic_vtol_tailsitter
 
 	# [14000, 14999] Tri Y

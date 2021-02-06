@@ -77,9 +77,9 @@ ExternalProject_Add(flightgear_bridge
 set(viewers none jmavsim gazebo)
 set(debuggers none ide gdb lldb ddd valgrind callgrind)
 set(models none shell
-	if750a iris iris_dual_gps iris_opt_flow iris_opt_flow_mockup iris_vision iris_rplidar iris_irlock iris_obs_avoid iris_rtps px4vision solo typhoon_h480
+	if750a iris iris_dual_gps iris_opt_flow iris_opt_flow_mockup iris_vision iris_rplidar iris_irlock iris_obs_avoid iris_rtps px4vision solo typhoon_h480 tarot_650
 	plane plane_cam plane_catapult plane_lidar
-	standard_vtol tailsitter tiltrotor
+	standard_vtol tailsitter tiltrotor mini_e mini_e_MC
 	rover r1_rover boat cloudship
 	uuv_hippocampus)
 set(worlds none empty baylands ksql_airport mcmillan_airfield sonoma_raceway warehouse windy)

@@ -1,0 +1,30 @@
+# Generic Quadcopter in wide configuration
+
+[info]
+key = "4tar"
+description = "Tarot Ironman 650 x configuration with Tmotors Navigator series (same as 4w but different Cm"
+
+[rotor_default]
+axis      = [0.0, 0.0, -1.0]
+Ct        = 1.0
+Cm        = 0.02
+
+[[rotors]]
+name      = "front_right"
+position  = [0.23, 0.23, 0.0]
+direction = "CCW"
+
+[[rotors]]
+name      = "rear_left"
+position  = [-0.23, -0.23, 0.0]
+direction = "CCW"
+
+[[rotors]]
+name     = "front_left"
+position = [0.23, -0.23, 0.0]
+direction = "CW"
+
+[[rotors]]
+name     = "rear_right"
+position = [-0.23, 0.23, 0.0]
+direction = "CW"

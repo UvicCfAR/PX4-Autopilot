@@ -44,6 +44,7 @@ set(geometry_files
 	octa_x.toml
 	quad_deadcat.toml
 	quad_h.toml
+	quad_mini_e.toml
 	quad_plus.toml
 	quad_s250aq.toml
 	quad_vtail.toml
@@ -52,6 +53,8 @@ set(geometry_files
 	quad_x.toml
 	quad_x_pusher.toml
 	quad_y.toml
+	quad_tarot_650.toml
+	quad_balsyPOC.toml
 	tri_y.toml
 	twin_engine.toml
 )

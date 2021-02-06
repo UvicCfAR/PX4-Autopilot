@@ -1,0 +1,53 @@
+#!/bin/sh
+#
+# @name Tarot IronMan 650 Quadrotor SITL
+#
+# @type Quadrotor Wide
+#
+# @maintainer Sean Bazzocchi <sean.bazzocchi@gmail.com>
+#
+
+sh /etc/init.d/rc.mc_defaults
+
+if [ $AUTOCNF = yes ]
+then
+
+	#Temp for tuning
+	param set MC_AIRMODE 0
+	param set MC_ACRO_EXPO 0
+	param set MC_ACRO_EXPO_Y 0
+	param set MC_ACRO_SUPEXPO 0
+	param set MC_ACRO_SUPEXPOY 0
+	param set MC_ACRO_P_MAX 100
+	param set MC_ACRO_R_MAX 100
+	param set MC_ACRO_Y_MAX 50
+
+
+	#Rate controller
+	param set MC_ROLLRATE_P 0.1
+	param set MC_ROLLRATE_I 0.1
+	param set MC_ROLLRATE_D 0.002
+	param set MC_PITCHRATE_P 0.1
+	param set MC_PITCHRATE_I 0.1
+	param set MC_PITCHRATE_D 0.002
+	param set MC_YAWRATE_P 0.4
+	param set MC_YAWRATE_I 0.35
+	param set MC_YAWRATE_D 0
+
+	#Attitude controller
+	param set MC_ROLL_P 7
+	param set MC_PITCH_P 7
+
+	#Motor settings
+	param set PWM_MIN 1100
+	param set THR_MDL_FAC 0 #Real:0.031
+	param set MPC_THR_HOVER 0.39
+
+	#Logging settings
+	param set SDLOG_PROFILE 27
+	param set SDLOG_UTC_OFFSET -480
+
+
+fi
+
+set MIXER quad_tarot_650
