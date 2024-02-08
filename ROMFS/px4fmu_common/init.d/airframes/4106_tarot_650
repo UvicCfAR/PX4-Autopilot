@@ -1,0 +1,129 @@
+#!/bin/sh
+#
+# @name Tarot IronMan 650
+#
+# @type Quadrotor x
+# @class Copter
+#
+# @maintainer Sean Bazzocchi <sean.bazzocchi@gmail.com>
+#
+
+. ${R}etc/init.d/rc.mc_defaults
+
+#Need to calculate and update all these
+param set-default CA_ROTOR_COUNT 4
+param set-default CA_ROTOR0_PX 0.15
+param set-default CA_ROTOR0_PY 0.15
+param set-default CA_ROTOR1_PX -0.15
+param set-default CA_ROTOR1_PY -0.15
+param set-default CA_ROTOR2_PX 0.15
+param set-default CA_ROTOR2_PY -0.15
+param set-default CA_ROTOR2_KM -0.05
+param set-default CA_ROTOR3_PX -0.15
+param set-default CA_ROTOR3_PY 0.15
+param set-default CA_ROTOR3_KM -0.05
+
+#Temp for tuning
+	param set-default MC_AIRMODE 2 #Set to 0 when tuning innerloop, 2 when tuned
+	# param set-default MC_ACRO_EXPO 0
+	# param set-default MC_ACRO_EXPO_Y 0
+	# param set-default MC_ACRO_SUPEXPO 0
+	# param set-default MC_ACRO_SUPEXPOY 0
+
+##SYSTEMS
+	#Power
+	param set-default BAT1_N_CELLS 6
+	param set-default BAT1_CAPACITY 7000
+	param set-default BAT1_R_INTERNAL 0.01
+
+	#Serial comms settings
+	param set-default MAV_1_CONFIG 102
+	param set-default MAV_1_MODE 2
+	param set-default MAV_1_RATE 5000
+	param set-default MAV_0_FORWARD 0
+	param set-default SER_TEL1_BAUD 115200
+	param set-default SER_TEL2_BAUD 115200
+
+	#LIDAR settings
+	param set-default SENS_EN_LL40LS 2
+	param set-default EKF2_RNG_AID 1
+	param set-default EKF2_RNG_A_HMAX 10
+	param set-default EKF2_RNG_A_VMAX 2
+	param set-default EKF2_RNG_PITCH 0
+	param set-default EKF2_RNG_POS_X 0.05
+	param set-default EKF2_RNG_POS_Y 0.045
+	param set-default EKF2_RNG_POS_Z 0.03
+
+	#EKF
+	param set-default EKF2_HGT_MODE 1 	#1 is baro, 2 is GPS
+
+	#Motor settings
+	#param set-default PWM_MIN 1100   Not working on sitl (did it got deleted in 1.12?)
+	param set-default THR_MDL_FAC 0.031
+	param set-default MPC_THR_HOVER 0.35
+
+	#Mission and safety
+	param set-default COM_RC_LOSS_T 2 #Seconds of lost radio to trigger failsafe
+	param set-default COM_RC_STICK_OV 30 #Stick treshold to revert to position mode
+
+	#Logging settings
+	param set-default SDLOG_PROFILE 27
+	param set-default SDLOG_UTC_OFFSET -480
+
+	#Filters
+	param set-default IMU_GYRO_CUTOFF 30
+	param set-default IMU_DGYRO_CUTOFF 20
+
+	#Multi-agent
+	param set-default NAV_TRAFF_AVOID 0
+
+##CONTROLLER TUNING
+	#Rate controller
+	param set-default MC_ROLLRATE_P 0.1
+	param set-default MC_ROLLRATE_I 0.1
+	param set-default MC_ROLLRATE_D 0.002
+
+	param set-default MC_PITCHRATE_P 0.1
+	param set-default MC_PITCHRATE_I 0.1
+	param set-default MC_PITCHRATE_D 0.002
+
+	param set-default MC_YAWRATE_P 0.4
+	param set-default MC_YAWRATE_I 0.35
+	param set-default MC_YAWRATE_D 0
+
+	#Attitude controller
+	param set-default MC_ROLL_P 4
+	param set-default MC_PITCH_P 4
+	param set-default MC_YAW_P 2.8
+
+	#Max rates
+	param set-default MC_ROLLRATE_MAX 65
+	param set-default MC_PITCHRATE_MAX 65
+	param set-default MC_YAWRATE_MAX 30
+	param set-default MPC_YAWRAUTO_MAX 15
+
+	#Max rates ACRO
+	param set-default MC_ACRO_P_MAX 65
+	param set-default MC_ACRO_R_MAX 65
+	param set-default MC_ACRO_Y_MAX 30
+
+
+##TANSMITTER
+
+	#Modes
+	param set-default RC_MAP_FLTMODE 5
+	param set-default COM_FLTMODE1 6 #Acro
+	param set-default COM_FLTMODE2 8 #Stabilized
+	param set-default COM_FLTMODE3 2 #Position
+	param set-default COM_FLTMODE4 3 #Mission
+	param set-default COM_FLTMODE5 5 #Return
+	param set-default COM_FLTMODE6 4 #Hold
+
+	#Rssi
+	param set-default RC_RSSI_PWM_CHAN 12
+	param set-default RC_RSSI_PWM_MAX 2000
+	param set-default RC_RSSI_PWM_MIN 1000
+
+	#Arm and kill
+	param set-default RC_MAP_ARM_SW 6
+	param set-default RC_MAP_KILL_SW 7

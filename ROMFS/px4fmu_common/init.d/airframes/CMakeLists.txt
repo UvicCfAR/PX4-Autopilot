@@ -66,6 +66,9 @@ px4_add_romfs_files(
 	4061_atl_mantis_edu
 	4071_ifo
 	4073_ifo-s
+	4106_tarot_650
+	4120_MIMIQ
+	4121_MIMIQLight
 	4500_clover4
 	4900_crazyflie
 	4901_crazyflie21
