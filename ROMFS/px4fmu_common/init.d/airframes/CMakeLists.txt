@@ -101,6 +101,7 @@ px4_add_romfs_files(
 	13013_deltaquad
 	13014_vtol_babyshark
 	13030_generic_vtol_quad_tiltrotor
+	13094_mini_e
 	13200_generic_vtol_tailsitter
 
 	# [14000, 14999] MC with tilt

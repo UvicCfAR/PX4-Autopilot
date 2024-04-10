@@ -114,12 +114,12 @@
 	#Max rates
 	param set-default MC_ROLLRATE_MAX 120
 	param set-default MC_PITCHRATE_MAX 120
-	param set-default MC_YAWRATE_MAX 90
+	param set-default MC_YAWRATE_MAX 150
 
 	#Max rates ACRO
-	param set-default MC_ACRO_P_MAX 100
-	param set-default MC_ACRO_R_MAX 100
-	param set-default MC_ACRO_Y_MAX 60
+	param set-default MC_ACRO_P_MAX 110
+	param set-default MC_ACRO_R_MAX 110
+	param set-default MC_ACRO_Y_MAX 80
 
 	#Motor settings
 	param set-default MPC_THR_HOVER 0.5

@@ -1,0 +1,284 @@
+#!/bin/sh
+#
+# @name Mini-e
+#
+# @type Standard VTOL
+#
+
+. ${R}etc/init.d/rc.vtol_defaults
+
+##MIXER (DO not use tab, not even in the comments)
+param set-default FD_ACT_EN 0
+param set-default FD_ACT_MOT_TOUT 500
+
+param set-default CA_AIRFRAME 2 #VTOL
+#Rotors:
+param set-default CA_ROTOR_COUNT 5 #N of rotors
+#Rotor 0 (front STBD)
+param set-default CA_ROTOR0_PX 0.5238
+param set-default CA_ROTOR0_PY 0.516
+param set-default CA_ROTOR0_CT 37
+param set-default CA_ROTOR0_KM 0.019
+#Rotor 1 (back PORT)
+param set-default CA_ROTOR1_PX -0.5238
+param set-default CA_ROTOR1_PY -0.516
+param set-default CA_ROTOR1_CT 37
+param set-default CA_ROTOR1_KM 0.019
+#Rotor 2 (front PORT)
+param set-default CA_ROTOR2_PX 0.5238
+param set-default CA_ROTOR2_PY -0.516
+param set-default CA_ROTOR2_CT 37
+param set-default CA_ROTOR2_KM -0.019
+#Rotor 3 (back STBD)
+param set-default CA_ROTOR3_PX -0.5238
+param set-default CA_ROTOR3_PY 0.516
+param set-default CA_ROTOR3_CT 37
+param set-default CA_ROTOR3_KM -0.019
+#Rotor 4 (pusher)
+param set-default CA_ROTOR4_AX 1.0
+param set-default CA_ROTOR4_AZ 0.0
+param set-default CA_ROTOR4_PX -0.592
+param set-default CA_ROTOR3_CT 22
+param set-default CA_ROTOR3_KM 0.035
+#Servos:
+param set-default CA_SV_CS_COUNT 4
+#Port aileron
+param set-default CA_SV_CS0_TYPE 1
+param set-default CA_SV_CS0_TRQ_R -0.5
+#Stbd aileron
+param set-default CA_SV_CS1_TYPE 2
+param set-default CA_SV_CS1_TRQ_R 0.5
+#Elevator
+param set-default CA_SV_CS2_TYPE 3
+param set-default CA_SV_CS2_TRQ_P 1.0
+#Rudder
+param set-default CA_SV_CS3_TYPE 4
+param set-default CA_SV_CS3_TRQ_Y 1.0
+
+
+param set-default PWM_MAIN_FUNC1 101
+param set-default PWM_MAIN_FUNC2 102
+param set-default PWM_MAIN_FUNC3 103
+param set-default PWM_MAIN_FUNC4 104
+param set-default PWM_MAIN_FUNC5 105
+param set-default PWM_MAIN_FUNC6 201
+param set-default PWM_MAIN_FUNC7 202
+param set-default PWM_MAIN_FUNC8 203
+
+#Temp for tuning and SID
+param set-default MC_AIRMODE 2 #Set to 0 when tuning innerloop, 2 when tuned
+# param set-default MC_ACRO_EXPO 0
+# param set-default MC_ACRO_EXPO_Y 0
+# param set-default MC_ACRO_SUPEXPO 0
+# param set-default MC_ACRO_SUPEXPO_Y 0
+
+##SYSTEMS
+#Safety
+param set-default COM_RC_LOSS_T 1 #Seconds of lost radio to trigger failsafe
+param set-default COM_DL_LOSS_T 30 #Seconds of lost GS link to trigger failsafe
+param set-default NAV_DLL_ACT 2 #Return after COM_DL_LOSS_T of lost comms
+param set-default COM_RC_STICK_OV 30 #Stick treshold to revert to position mode
+param set-default GF_ACTION 1
+#Mission
+param set-default RTL_RETURN_ALT 50 
+param set-default NAV_LOITER_RAD 100 #Loiter radius in m for FW
+param set-default RTL_LOITER_RAD 80 #Loiter radius for RTL in m for FW
+param set-default MIS_YAW_TMT 15 
+param set-default NAV_FW_ALTL_RAD 200 #FW Altitude Acceptance Radius before a landing
+param set-default NAV_FW_ALT_RAD 200 #FW Altitude Acceptance Radius
+
+
+#Airspeed Sensor
+param set-default FW_AIRSPD_STALL  12 #Used to detect airspeed failure
+param set-default FW_GND_SPD_MIN 12 #Min groundspeed in FW
+
+#Logging settings
+param set-default SDLOG_PROFILE 27
+param set-default SDLOG_UTC_OFFSET -480
+
+#Arming
+param set-default CBRK_VTOLARMING 159753
+param set-default COM_PREARM_MODE 2
+
+#Filters
+# Removed all notch filter due to new names.. Place new ones?
+
+##MULTI-COPTER
+param set-default MC_AIRMODE 2 
+#Rate controller
+param set-default MC_ROLLRATE_P 0.34
+param set-default MC_ROLLRATE_I 0.19
+param set-default MC_ROLLRATE_D 0.0065
+
+param set-default MC_PITCHRATE_P 0.34
+param set-default MC_PITCHRATE_I 0.17
+param set-default MC_PITCHRATE_D 0.0055
+
+param set-default MC_YAWRATE_P 0.96
+param set-default MC_YAWRATE_I 0.46
+param set-default MC_YAWRATE_D 0
+
+#Attitude controller
+param set-default MC_ROLL_P 4
+param set-default MC_PITCH_P 4
+param set-default MC_YAW_P 0.6
+
+#Max rates
+param set-default MC_ROLLRATE_MAX 65
+param set-default MC_PITCHRATE_MAX 65
+param set-default MC_YAWRATE_MAX 30
+param set-default MPC_YAWRAUTO_MAX 15
+
+#Max rates ACRO
+param set-default MC_ACRO_P_MAX 65
+param set-default MC_ACRO_R_MAX 65
+param set-default MC_ACRO_Y_MAX 30
+
+#Position Controller
+param set-default MPC_JERK_AUTO 4
+param set-default MPC_JERK_MAX 4.5
+param set-default MPC_ACC_HOR_MAX 2
+
+#Vertical position controller
+param set-default MPC_Z_VEL_MAX_DN 2
+param set-default MPC_Z_VEL_MAX_UP 2.5
+
+#Takeoff
+param set-default MPC_TKO_SPEED 1.5
+
+#Landing
+param set-default MPC_LAND_SPEED 0.4
+param set-default MPC_LAND_ALT1 8
+param set-default MPC_LAND_ALT2 2
+
+#Motor settings
+param set-default MPC_THR_HOVER 0.75
+param set-default MPC_THR_MIN 0.1
+
+
+#Fixed-wing
+#TECS
+param set-default FW_AIRSPD_MAX 30
+param set-default EKF2_ASPD_MAX 44
+param set-default FW_AIRSPD_MIN 18
+param set-default FW_AIRSPD_STALL 15
+param set-default FW_AIRSPD_TRIM 23
+param set-default FW_THR_TRIM 0.73
+param set-default FW_THR_MAX 1
+param set-default FW_THR_MIN 0
+param set-default FW_THR_IDLE 0
+
+param set-default FW_T_SPDWEIGHT 1 #altitude-speed weight
+param set-default FW_T_CLMB_MAX 3.5 #Climb rate @cruise spd and 100TLA
+param set-default FW_T_CLMB_R_SP 2.5 
+param set-default FW_T_SINK_MAX 7 #Desent rate @max spd and 0TLA
+param set-default FW_T_SINK_MIN 1.6 #Desent rate @cruise spd and 0TLA
+param set-default FW_T_RLL2THR 25 #Roll 2 throttle feed forward
+param set-default FW_T_PTCH_DAMP 0.25
+param set-default FW_T_THR_DAMP 0.2
+
+#Altitude controller
+param set-default FW_T_SEB_R_FF 0.6 
+
+#Nav controller
+param set-default FW_P_LIM_MAX 7 #Pitch required for climb @cruise speed and 100TLA
+param set-default FW_P_LIM_MIN -15 #Pitch required for descend @max speed and 0TLA
+param set-default FW_R_LIM 45
+
+
+#Navigation
+param set-default NAV_ACC_RAD 10
+param set-default NAV_LOITER_RAD 80
+
+#Rate controller
+#Roll
+param set-default FW_RR_FF 0.7963
+param set-default FW_RR_P 0.22013
+param set-default FW_RR_I 0.23412
+param set-default FW_RR_IMAX 0.2
+
+#Pitch
+param set-default FW_PR_FF 1.7832
+param set-default FW_PR_P 0.19865
+param set-default FW_PR_I 0.22947
+param set-default FW_PR_IMAX 0.55
+
+#Yaw
+param set-default FW_YR_FF 0.36892
+param set-default FW_YR_P 0.23652
+param set-default FW_YR_I 0.23673
+param set-default FW_YR_IMAX 0.2
+
+
+#Time constant and dampening
+param set-default FW_R_TC 0.39915
+param set-default FW_P_TC 0.77826
+
+
+#Trim angles to mantain cruise
+param set-default FW_PSP_OFF -1.9
+
+#Max rates
+param set-default FW_R_RMAX 60
+param set-default FW_P_RMAX_POS 40
+param set-default FW_P_RMAX_NEG 40
+param set-default FW_Y_RMAX 35
+
+#Max rates ACRO
+param set-default FW_ACRO_X_MAX 60
+param set-default FW_ACRO_Y_MAX 60
+param set-default FW_ACRO_Z_MAX 35
+
+#Max angles in manual
+param set-default FW_MAN_R_MAX 45
+param set-default FW_MAN_P_MAX 30
+
+#Coordinated turn parameter
+param set-default FW_RLL_TO_YAW_FF 0.1
+
+#Trim per axis (added to [-1,1] command for cruise)
+param set-default TRIM_ROLL 0.04
+param set-default TRIM_PITCH -0.2 #5050A=-0.14 5050B=-0.2
+param set-default TRIM_YAW -0.13
+
+#Trim changes with speed
+param set-default FW_DTRIM_P_VMIN  0.18 #5050A:Abs 1.17deg, Rel: 2.14deg, Pct:0.25 	5050B: Pct:0.18
+param set-default FW_DTRIM_P_VMAX  -0.24 #5050A:Abs -1.85deg, Rel: -0.88deg, Pct:-0.23 	5050B: Pct:-0.25
+
+#GPS failure navigation
+param set-default FW_GPSF_LT 240
+param set-default FW_GPSF_R 20
+
+#VTOL transition
+#Foront
+param set-default VT_F_TRANS_DUR 13
+param set-default VT_F_TR_OL_TM 13
+param set-default VT_TRANS_TIMEOUT 20
+param set-default VT_F_TRANS_THR 1
+param set-default VT_ARSP_BLEND 12
+param set-default VT_ARSP_TRANS 21
+
+#Back
+param set-default VT_B_TRANS_DUR 30
+param set-default VT_B_DEC_MSS 0.9
+param set-default VT_B_DEC_FF 0
+
+#VTOL general
+param set-default VT_TYPE 2
+
+#Quadchute
+param set-default VT_FW_MIN_ALT 40
+param set-default VT_FW_MIN_ALT 20
+param set-default VT_FW_QC_P 60
+param set-default VT_FW_QC_R 80
+
+#WindVane
+param set-default WV_EN 1
+param set-default WV_YRATE_MAX 20
+
+#Autotune
+param set-default FW_AT_AXES 7
+param set-default FW_AT_SYSID_AMP 1
+param set-default MC_AT_EN 1
+param set-default MC_AT_SYSID_AMP 0.2
+
