@@ -38,8 +38,8 @@ param set-default CA_ROTOR3_KM -0.019
 param set-default CA_ROTOR4_AX 1.0
 param set-default CA_ROTOR4_AZ 0.0
 param set-default CA_ROTOR4_PX -0.592
-param set-default CA_ROTOR3_CT 22
-param set-default CA_ROTOR3_KM 0.035
+param set-default CA_ROTOR4_CT 22
+param set-default CA_ROTOR4_KM 0.035
 #Servos:
 param set-default CA_SV_CS_COUNT 4
 #Port aileron
@@ -55,7 +55,6 @@ param set-default CA_SV_CS2_TRQ_P 1.0
 param set-default CA_SV_CS3_TYPE 4
 param set-default CA_SV_CS3_TRQ_Y 1.0
 
-
 param set-default PWM_MAIN_FUNC1 101
 param set-default PWM_MAIN_FUNC2 102
 param set-default PWM_MAIN_FUNC3 103
@@ -64,6 +63,7 @@ param set-default PWM_MAIN_FUNC5 105
 param set-default PWM_MAIN_FUNC6 201
 param set-default PWM_MAIN_FUNC7 202
 param set-default PWM_MAIN_FUNC8 203
+param set-default PWM_MAIN_FUNC9 204
 
 #Temp for tuning and SID
 param set-default MC_AIRMODE 2 #Set to 0 when tuning innerloop, 2 when tuned

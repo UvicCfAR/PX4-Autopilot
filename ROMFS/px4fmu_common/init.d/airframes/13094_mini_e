@@ -42,8 +42,8 @@ param set-default CA_ROTOR3_KM -0.019
 param set-default CA_ROTOR4_AX 1.0
 param set-default CA_ROTOR4_AZ 0.0
 param set-default CA_ROTOR4_PX -0.592
-param set-default CA_ROTOR3_CT 22
-param set-default CA_ROTOR3_KM 0.035
+param set-default CA_ROTOR4_CT 22
+param set-default CA_ROTOR4_KM 0.035
 #Servos:
 param set-default CA_SV_CS_COUNT 4
 #Port aileron
