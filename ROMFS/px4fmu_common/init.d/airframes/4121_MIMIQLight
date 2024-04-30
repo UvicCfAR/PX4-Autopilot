@@ -15,9 +15,13 @@
 
 ##SYSTEMS
 	#Power
+	param set-default BAT1_SOURCE 1
 	param set-default BAT1_N_CELLS 14
-	param set-default BAT1_CAPACITY 6000 #23Ah
+	param set-default BAT1_CAPACITY 8000 #23Ah
 	param set-default BAT1_R_INTERNAL 0.01
+
+	#ICE
+	param set-default COM_ARM_IMU_ACC 8 #Allows to arm even with 8mps2 of acc inconsistency
 
 	#LIDAR settings
 	param set-default SENS_EN_LL40LS 2
@@ -41,6 +45,12 @@
 	#Serial comms settings
 	param set-default SER_TEL1_BAUD 115200
 	param set-default MAV_PROTO_VER 2 #Force mavlink 2.0 to be the protocol (needed for RTK)
+
+	param set-default SER_TEL3_BAUD 115200
+	param set-default MAV_2_CONFIG 103
+	param set-default MAV_2_FORWARD 1
+	param set-default MAV_2_RADIO_CTL 1
+	param set-default MAV_2_RATE 80000
 
 	#Sensor rotation
 	param set-default SENS_BOARD_ROT 4 #Yaw 180
@@ -73,6 +83,8 @@
 	param set-default NAV_DLL_ACT 2 #Return after COM_DL_LOSS_T of lost comms
 	param set-default COM_RC_STICK_OV 30 #Stick treshold to revert to position mode
 	param set-default GF_ACTION 1
+	param set-default FD_ACT_EN 0 #Remove the check of amp per throttle for detecting faults with currawong
+
 	#Mission
 	param set-default RTL_RETURN_ALT 50 
 
@@ -84,12 +96,14 @@
 	param set-default MAN_ARM_GESTURE 0
 
 	#Filters
-	param set-default IMU_GYRO_CUTOFF 30
-	param set-default IMU_DGYRO_CUTOFF 20
-	param set-default IMU_ACCEL_CUTOFF 20
+	param set-default IMU_GYRO_CUTOFF 20
+	param set-default IMU_DGYRO_CUTOFF 15
+	param set-default IMU_ACCEL_CUTOFF 15
 	param set-default IMU_GYRO_DNF_EN 2
 	param set-default IMU_GYRO_FFT_EN 1
 	param set-default IMU_GYRO_FFT_MIN 10
+	param set-default IMU_GYRO_DNF_HMC 5
+	param set-default IMU_GYRO_DNF_MIN 20
 
 
 ##CONTROLLER TUNING
