@@ -63,7 +63,6 @@ px4_add_romfs_files(
 	4050_generic_250
 	4052_holybro_qav250
 	4053_holybro_kopis2
-	4061_atl_mantis_edu
 	4071_ifo
 	4073_ifo-s
 	4106_tarot_650
@@ -71,7 +70,6 @@ px4_add_romfs_files(
 	4121_MIMIQLight
 	4500_clover4
 	4900_crazyflie
-	4901_crazyflie21
 
 	# [5000, 5999] Quadrotor +"
 	5001_quad_+
@@ -108,13 +106,6 @@ px4_add_romfs_files(
 	14001_generic_mc_with_tilt
 
 	16001_helicopter
-
-	# [17000, 17999] Autogyro
-	17002_TF-AutoG2
-	17003_TF-G2
-
-	# [18000, 18999] High-altitude balloons
-	18001_TF-B1
 
 	# [22000, 22999] Reserve for custom models
 

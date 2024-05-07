@@ -15,7 +15,7 @@
 
 ##SYSTEMS
 	#Power
-	param set-default BAT1_SOURCE 1
+	param set-default BAT1_SOURCE -1
 	param set-default BAT1_N_CELLS 14
 	param set-default BAT1_CAPACITY 8000 #23Ah
 	param set-default BAT1_R_INTERNAL 0.01
@@ -85,6 +85,9 @@
 	param set-default GF_ACTION 1
 	param set-default FD_ACT_EN 0 #Remove the check of amp per throttle for detecting faults with currawong
 
+	param set-default RTL_DESCEND_ALT 5
+	param set-default RTL_LAND_DELAY 10
+
 	#Mission
 	param set-default RTL_RETURN_ALT 50 
 
@@ -96,34 +99,36 @@
 	param set-default MAN_ARM_GESTURE 0
 
 	#Filters
-	param set-default IMU_GYRO_CUTOFF 20
-	param set-default IMU_DGYRO_CUTOFF 15
-	param set-default IMU_ACCEL_CUTOFF 15
+	param set-default IMU_GYRO_CUTOFF 15
+	param set-default IMU_DGYRO_CUTOFF 10
+	param set-default IMU_ACCEL_CUTOFF 10
 	param set-default IMU_GYRO_DNF_EN 2
 	param set-default IMU_GYRO_FFT_EN 1
 	param set-default IMU_GYRO_FFT_MIN 10
 	param set-default IMU_GYRO_DNF_HMC 5
 	param set-default IMU_GYRO_DNF_MIN 20
+	param set-default IMU_GYRO_NF0_FRQ 71
+	param set-default IMU_GYRO_NF1_FRQ 113
 
 
 ##CONTROLLER TUNING
 	#Rate controller
-	param set-default MC_ROLLRATE_P 0.146
-	param set-default MC_ROLLRATE_I 0.199
-	param set-default MC_ROLLRATE_D 0.0039
+	param set-default MC_ROLLRATE_P 0.22073
+	param set-default MC_ROLLRATE_I 0.2985
+	param set-default MC_ROLLRATE_D 0.0030327
 
-	param set-default MC_PITCHRATE_P 0.1499
-	param set-default MC_PITCHRATE_I 0.205
-	param set-default MC_PITCHRATE_D 0.004
+	param set-default MC_PITCHRATE_P 0.25538
+	param set-default MC_PITCHRATE_I 0.35241
+	param set-default MC_PITCHRATE_D 0.0099296
 
-	param set-default MC_YAWRATE_P 0.189
-	param set-default MC_YAWRATE_I 0.1836
-	param set-default MC_YAWRATE_D 0.0063
+	param set-default MC_YAWRATE_P 0.21203
+	param set-default MC_YAWRATE_I 0.21001
+	param set-default MC_YAWRATE_D 0.008555
 
 	#Attitude controller
-	param set-default MC_ROLL_P 6
-	param set-default MC_PITCH_P 6
-	param set-default MC_YAW_P 2.8
+	param set-default MC_ROLL_P 4.5
+	param set-default MC_PITCH_P 3.5
+	param set-default MC_YAW_P 4.4
 
 	#Max rates
 	param set-default MC_ROLLRATE_MAX 120
@@ -140,6 +145,7 @@
 
 	#Autotune
 	param set-default MC_AT_EN 1
+	param set-default MC_AT_SYSID_AMP 0.9
 
 ##Mixer
 	param set-default CA_ROTOR_COUNT 4

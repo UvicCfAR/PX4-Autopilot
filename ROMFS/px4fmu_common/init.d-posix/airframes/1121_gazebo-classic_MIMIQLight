@@ -19,6 +19,10 @@
 	param set-default NAV_DLL_ACT 2 #Return after COM_DL_LOSS_T of lost comms
 	param set-default COM_RC_STICK_OV 30 #Stick treshold to revert to position mode
 	param set-default GF_ACTION 1
+
+	param set-default RTL_DESCEND_ALT 5
+	param set-default RTL_LAND_DELAY 10
+	
 	#Mission
 	param set-default RTL_RETURN_ALT 50 
 
@@ -40,22 +44,22 @@
 
 ##CONTROLLER TUNING
 	#Rate controller
-	param set-default MC_ROLLRATE_P 0.146 
-	param set-default MC_ROLLRATE_I 0.199
-	param set-default MC_ROLLRATE_D 0.0039
+	param set-default MC_ROLLRATE_P 0.22073
+	param set-default MC_ROLLRATE_I 0.2985
+	param set-default MC_ROLLRATE_D 0.0030327
 
-	param set-default MC_PITCHRATE_P 0.1499
-	param set-default MC_PITCHRATE_I 0.205
-	param set-default MC_PITCHRATE_D 0.004
+	param set-default MC_PITCHRATE_P 0.25538
+	param set-default MC_PITCHRATE_I 0.35241
+	param set-default MC_PITCHRATE_D 0.0099296
 
-	param set-default MC_YAWRATE_P 0.189
-	param set-default MC_YAWRATE_I 0.1836
-	param set-default MC_YAWRATE_D 0.0063
+	param set-default MC_YAWRATE_P 0.21203
+	param set-default MC_YAWRATE_I 0.21001
+	param set-default MC_YAWRATE_D 0.008555
 
 	#Attitude controller
-	param set-default MC_ROLL_P 6
-	param set-default MC_PITCH_P 6
-	param set-default MC_YAW_P 2.8
+	param set-default MC_ROLL_P 4.5
+	param set-default MC_PITCH_P 3.5
+	param set-default MC_YAW_P 4.4
 
 	#Max rates
 	param set-default MC_ROLLRATE_MAX 120
